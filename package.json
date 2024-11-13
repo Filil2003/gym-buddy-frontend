@@ -1,0 +1,35 @@
+{
+  "name": "gym-buddy-frontend",
+  "version": "0.0.0",
+  "description": "Gym Buddy frontend",
+  "homepage": "https://github.com/Filil2003/gym-buddy-frontend",
+  "bugs": "https://github.com/Filil2003/gym-buddy-frontend/issues",
+  "license": "UNLICENSED",
+  "author": "Ilya Filatov <filil2003@yandex.ru>",
+  "repository": "github:filil2003/gym-buddy-frontend",
+  "scripts": {
+    "serve": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "not implemented",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  },
+  "engines": {
+    "node": "^20.17.0",
+    "yarn": "^1.22.22"
+  },
+  "packageManager": "yarn@1.22.22",
+  "type": "module",
+  "private": true
+}
