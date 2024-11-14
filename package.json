@@ -8,10 +8,11 @@
   "author": "Ilya Filatov <filil2003@yandex.ru>",
   "repository": "github:filil2003/gym-buddy-frontend",
   "scripts": {
-    "serve": "vite",
+    "start": "vite",
     "build": "tsc -b && vite build",
-    "lint": "not implemented",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "echo \"Error: no lint specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "react": "^18.3.1",
