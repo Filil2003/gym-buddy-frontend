@@ -1,17 +1,11 @@
-import { useState } from 'react';
-import './App.css';
+import { HttpApiClient } from '#shared/lib/httpApiClient';
+import { AntdConfigProvider } from './providers/AntdConfigProvider/index.tsx';
+import { AppRouterProvider } from './providers/AppRouterProvider/index.tsx';
 
-function App() {
-  const [ count, setCount ] = useState(0);
+HttpApiClient.getInstance('http://dev.localhost:8080');
 
-  return (
-    <>
-      <h1>Vite + React</h1>
-      <button onClick={(): void => setCount((count: number): number => count + 1)}>
-        count is {count}
-      </button>
-    </>
-  );
-}
-
-export { App };
+export const App = () => (
+  <AntdConfigProvider>
+    <AppRouterProvider />
+  </AntdConfigProvider>
+);
