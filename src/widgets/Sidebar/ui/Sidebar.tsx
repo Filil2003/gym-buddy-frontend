@@ -1,4 +1,5 @@
-import { clearAuthToken, useAuthStore } from '#features/authentication';
+import { isAuthorized, useSessionStore } from '#entities/session';
+import { SignOutButton } from '#features/auth';
 import Icon, {
   LogoutOutlined,
   MenuFoldOutlined,
@@ -48,20 +49,12 @@ const userMenu: MenuItem[] = [
   {
     key: 'sign-out',
     icon: <LogoutOutlined />,
-    label: (
-      <Link to={''} onClick={clearAuthToken}>
-        Sign Out
-      </Link>
-    )
+    label: <SignOutButton />
   }
 ];
 
 export function Sidebar() {
-  const isAuthorized = useAuthStore((state) => state.isAuthorized());
-
-  const user = {
-    email: 'filil2003@yandex.ru'
-  };
+  const tokenPayload = useSessionStore((state) => state.tokenPayload);
 
   const [collapsed, setCollapsed] = useState(false);
   const toggleCollapse = () => setCollapsed((prev) => !prev);
@@ -76,8 +69,7 @@ export function Sidebar() {
       trigger={null}
       style={{
         padding: '8px',
-        boxShadow: '5px 0 50px #f2f2f2',
-        marginRight: '30px'
+        boxShadow: '5px 0 50px #f2f2f2'
       }}
     >
       <Flex vertical={true} style={{ height: '100%' }}>
@@ -96,7 +88,7 @@ export function Sidebar() {
           }}
         />
 
-        {isAuthorized && (
+        {isAuthorized() && (
           <div style={{ padding: '16px' }}>
             <Dropdown
               arrow={true}
@@ -109,11 +101,11 @@ export function Sidebar() {
                 <Avatar
                   style={{ backgroundColor: '#1677ff', userSelect: 'none' }}
                 >
-                  {user?.email?.slice(0, 2).toUpperCase()}
+                  {tokenPayload?.email?.slice(0, 2).toUpperCase()}
                 </Avatar>
                 {!collapsed && (
                   <Typography.Text style={{ wordBreak: 'keep-all' }}>
-                    {user.email}
+                    {tokenPayload?.email}
                   </Typography.Text>
                 )}
               </Space>

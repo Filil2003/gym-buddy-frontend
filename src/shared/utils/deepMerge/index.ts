@@ -7,24 +7,25 @@
  * @returns The new object resulting from the merge.
  */
 export function deepMerge(
-	// biome-ignore lint/suspicious/noExplicitAny: <The function needs to handle objects with arbitrary values>
-	...objects: Record<string, any>[]
-): Record<string, unknown> {
-	return objects.reduce((acc, obj) => {
-		for (const key in obj) {
-			if (Reflect.has(obj, key)) {
-				const accValue: unknown = acc[key];
-				const objValue: unknown = obj[key];
+  // biome-ignore lint/suspicious/noExplicitAny: <The function needs to handle objects with arbitrary values>
+  ...objects: Record<string, any>[]
+  // biome-ignore lint/suspicious/noExplicitAny: <The function needs to handle objects with arbitrary values>
+): Record<string, any> {
+  return objects.reduce((acc, obj) => {
+    for (const key in obj) {
+      if (Reflect.has(obj, key)) {
+        const accValue = acc[key];
+        const objValue = obj[key];
 
-				if (isObject(accValue) && isObject(objValue)) {
-					acc[key] = deepMerge(accValue, objValue);
-				} else {
-					acc[key] = obj[key];
-				}
-			}
-		}
-		return acc;
-	}, {});
+        if (isObject(accValue) && isObject(objValue)) {
+          acc[key] = deepMerge(accValue, objValue);
+        } else {
+          acc[key] = obj[key];
+        }
+      }
+    }
+    return acc;
+  }, {});
 }
 
 /**
@@ -33,5 +34,5 @@ export function deepMerge(
  * @returns `true` if the value is an object, `false` otherwise.
  */
 function isObject(value: unknown): value is Record<string, unknown> {
-	return typeof value === 'object' && value !== null && !Array.isArray(value);
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
 }

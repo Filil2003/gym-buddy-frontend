@@ -1,4 +1,6 @@
-import { ExercisesPage } from '#pages/ExercisesPage.tsx';
+import { CreateExercisePage } from '#pages/exercises/CreateExercisePage.tsx';
+import { EditExercisePage } from '#pages/exercises/EditExercisePage.tsx';
+import { ExercisesListPage } from '#pages/exercises/ExercisesListPage.tsx';
 import { NotFoundPage } from '#pages/NotFoundPage.tsx';
 import { RegisterPage } from '#pages/RegisterPage.tsx';
 import { SignInPage } from '#pages/SignInPage.tsx';
@@ -16,7 +18,15 @@ export const routes: RouteObject[] = [
     children: [
       {
         path: 'exercises',
-        element: <ExercisesPage />
+        element: <ExercisesListPage />
+      },
+      {
+        path: 'exercises/create',
+        element: <CreateExercisePage />
+      },
+      {
+        path: 'exercises/:id',
+        element: <EditExercisePage />
       },
       {
         path: 'workouts',

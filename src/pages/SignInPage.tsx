@@ -1,4 +1,4 @@
-import { SignInForm } from '#features/authentication';
+import { SignInForm } from '#features/auth';
 import { Flex } from 'antd';
 
 export function SignInPage() {

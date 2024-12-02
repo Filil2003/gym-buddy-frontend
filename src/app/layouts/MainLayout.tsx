@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 
 export const MainLayout = () => (
   <Layout style={{ height: '100%' }}>
-    <Sidebar/>
+    <Sidebar />
     <Layout
       style={{
         display: 'flex',
@@ -14,11 +14,17 @@ export const MainLayout = () => (
         height: '100%'
       }}
     >
-      <Header/>
-      <Layout.Content style={{ flexGrow: 1 }}>
-        <Outlet/>
+      <Header />
+      <Layout.Content
+        style={{
+          flexGrow: 1,
+          padding: '16px',
+          overflow: 'auto'
+        }}
+      >
+        <Outlet />
       </Layout.Content>
-      <Footer/>
+      <Footer />
     </Layout>
   </Layout>
 );

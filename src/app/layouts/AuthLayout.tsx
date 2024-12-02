@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 export const AuthLayout = () => (
   <Layout style={{ height: '100%' }}>
     <Layout.Content>
-      <Outlet />
+      <Outlet/>
     </Layout.Content>
   </Layout>
 );

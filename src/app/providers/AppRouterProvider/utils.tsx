@@ -1,4 +1,4 @@
-import { isAuthorized } from '#features/authentication';
+import { isAuthorized } from '#entities/session';
 import { redirect } from 'react-router-dom';
 
 export function redirectAuthorizedUser(): Response | null {

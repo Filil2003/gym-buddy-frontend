@@ -1,4 +1,4 @@
-import { RegisterForm } from '#features/authentication';
+import { RegisterForm } from '#features/auth';
 import { Flex } from 'antd';
 
 export function RegisterPage() {
