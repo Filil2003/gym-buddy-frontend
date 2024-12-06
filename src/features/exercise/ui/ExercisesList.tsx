@@ -1,15 +1,15 @@
 import {
   type Exercise,
+  ExerciseImage,
   type QueryParams,
   useExerciseStore
 } from '#entities/exercise';
-import { SearchBar } from '#features/exercise/ui/components/SearchBar.tsx';
 import { useUrlStorage } from '#shared/lib/react/hooks/useUrlStorage.ts';
 import { List, Row, Typography } from 'antd';
 import { CreateButton } from './components/CreateButton.tsx';
 import { EditButton } from './components/EditButton.tsx';
-import { ExerciseImage } from './components/ExerciseImage.tsx';
-import { RemoveButton } from './components/RemoveButton.tsx';
+import { RemoveButton } from './components/RemoveButton/index.ts';
+import { SearchBar } from './components/SearchBar.tsx';
 
 export function ExercisesList() {
   const filteredExercises: Exercise[] = useExerciseStore(

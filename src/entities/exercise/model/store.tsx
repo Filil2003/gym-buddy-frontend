@@ -1,5 +1,7 @@
+import { sendApiRequest } from '#shared/lib/api-client';
 import { create, type StateCreator } from 'zustand/index';
 import { devtools } from 'zustand/middleware';
+import { getAll } from '../api/requests.ts';
 import type { Exercise, QueryParams } from './types.ts';
 
 type ExerciseStore = ExerciseState & ExerciseActions;
@@ -10,12 +12,14 @@ interface ExerciseState {
 }
 
 interface ExerciseActions {
+  loadExercises: () => void;
   setExercises: (exercises: Exercise[]) => void;
   addExercise: (exercise: Exercise) => void;
   updateExercise: (id: string, updatedExercise: Partial<Exercise>) => void;
   removeExercise: (id: string) => void;
   setQueryParams: (queryParams: QueryParams) => void;
   getFilteredExercises: () => Exercise[];
+  filterOutExercises: (exclude: Exercise[]) => Exercise[];
 }
 
 type ExerciseMiddlewares = [['zustand/devtools', never]];
@@ -27,6 +31,12 @@ const exerciseSlice: StateCreator<ExerciseStore, ExerciseMiddlewares> = (
   exercises: [],
   queryParams: {
     search: ''
+  },
+
+  loadExercises: () => {
+    sendApiRequest<Exercise[]>(getAll()).then(([_, exercises]) =>
+      setState({ exercises })
+    );
   },
 
   setExercises: (exercises) =>
@@ -62,6 +72,12 @@ const exerciseSlice: StateCreator<ExerciseStore, ExerciseMiddlewares> = (
       exercise.name.toLowerCase().includes(search)
     );
   },
+
+  filterOutExercises: (exclude: Exercise[]) => {
+    return getState().exercises.filter(
+      (exercise) => !exclude.some((excluded) => excluded.id === exercise.id)
+    );
+  }
 });
 
 export const useExerciseStore = create(devtools(exerciseSlice));

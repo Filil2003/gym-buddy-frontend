@@ -2,6 +2,9 @@ import { CreateExercisePage } from '#pages/exercises/CreateExercisePage.tsx';
 import { EditExercisePage } from '#pages/exercises/EditExercisePage.tsx';
 import { ExercisesListPage } from '#pages/exercises/ExercisesListPage.tsx';
 import { NotFoundPage } from '#pages/NotFoundPage.tsx';
+import { CreatePlanPage } from '#pages/plans/CreatePlanPage.tsx';
+import { EditPlanPage } from '#pages/plans/EditPlanPage.tsx';
+import { PlansListPage } from '#pages/plans/PlansListPage.tsx';
 import { RegisterPage } from '#pages/RegisterPage.tsx';
 import { SignInPage } from '#pages/SignInPage.tsx';
 import { WorkoutsPage } from '#pages/WorkoutsPage.tsx';
@@ -27,6 +30,18 @@ export const routes: RouteObject[] = [
       {
         path: 'exercises/:id',
         element: <EditExercisePage />
+      },
+      {
+        path: 'plans',
+        element: <PlansListPage />
+      },
+      {
+        path: 'plans/create',
+        element: <CreatePlanPage />
+      },
+      {
+        path: 'plans/:id',
+        element: <EditPlanPage />
       },
       {
         path: 'workouts',

@@ -1,10 +1,7 @@
-import type {
-  CreateExerciseData,
-  UpdateExerciseData
-} from '#entities/exercise';
 import { getSessionToken } from '#entities/session';
 import { HttpMethod } from '#shared/enums/http';
 import { type ApiRequest, ApiRequestBuilder } from '#shared/lib/api-client';
+import type { CreateExerciseData, UpdateExerciseData } from '../model/types.ts';
 
 export const getAll = (): ApiRequest =>
   new ApiRequestBuilder()

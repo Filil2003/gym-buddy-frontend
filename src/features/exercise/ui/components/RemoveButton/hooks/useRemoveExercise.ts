@@ -1,8 +1,7 @@
-import { useExerciseStore } from '#entities/exercise';
+import { remove, useExerciseStore } from '#entities/exercise';
 import { useApiClient } from '#shared/lib/api-client';
 import { message } from 'antd';
 import { type NavigateFunction, useNavigate } from 'react-router-dom';
-import { remove } from '../api/exercise.requests.ts';
 
 export function useRemoveExercise(id: string) {
   const removeExercise = useExerciseStore((state) => state.removeExercise);
@@ -13,6 +12,7 @@ export function useRemoveExercise(id: string) {
     const [error] = await sendRequest(remove(id));
     if (error) {
       message.error(error.message);
+      console.log(error);
       return;
     }
 

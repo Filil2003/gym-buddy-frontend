@@ -1,0 +1,7 @@
+.ExerciseItem {
+  cursor: grab;
+}
+
+.ExerciseItem:active {
+  cursor: grabbing;
+}

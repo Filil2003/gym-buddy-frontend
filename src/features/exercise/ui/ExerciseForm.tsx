@@ -1,12 +1,17 @@
-import { type Exercise, useExerciseStore } from '#entities/exercise';
+import {
+  create,
+  type Exercise,
+  getOne,
+  update,
+  useExerciseStore
+} from '#entities/exercise';
 import { useApiClient } from '#shared/lib/api-client';
 import { useAppearanceDelay } from '#shared/lib/react/hooks/useAppearanceDelay.ts';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Flex, Form, Input, message, Upload } from 'antd';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { create, getOne, update } from '../api/exercise.requests.ts';
-import { RemoveButton } from './components/RemoveButton.tsx';
+import { RemoveButton } from './components/RemoveButton/index.ts';
 
 export const ExerciseForm = () => {
   const [form] = Form.useForm();
@@ -16,7 +21,7 @@ export const ExerciseForm = () => {
   const [sendRequest, isFetching] = useApiClient();
   const isDelayedFetching: boolean = useAppearanceDelay(isFetching);
 
-  useEffect(() => {
+  useEffect((): void => {
     if (id) {
       sendRequest<Exercise>(getOne(id)).then(([error, data]) => {
         if (error && error.name !== 'AbortError') message.error(error?.message);

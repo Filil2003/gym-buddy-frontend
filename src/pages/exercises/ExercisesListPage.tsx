@@ -1,7 +1,3 @@
-import { ExercisesList, useLoadExercises } from '#features/exercise';
+import { ExercisesList } from '#features/exercise';
 
-export function ExercisesListPage() {
-  useLoadExercises();
-
-  return <ExercisesList />;
-}
+export const ExercisesListPage = () => <ExercisesList />;
