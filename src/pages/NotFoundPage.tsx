@@ -7,10 +7,10 @@ export const NotFoundPage = () => (
     <Result
       status={HttpStatusCode.NotFound}
       title={`${HttpStatusCode.NotFound} ${HttpStatusMessage.NotFound}`}
-      subTitle="Sorry, the page you visited does not exist."
+      subTitle="К сожалению, страница, которую вы посетили, не существует."
       extra={
         <Link to="/">
-          <Button type="primary">Back Home</Button>
+          <Button type="primary">Вернуться на главную</Button>
         </Link>
       }
     />

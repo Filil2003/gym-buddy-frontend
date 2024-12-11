@@ -7,7 +7,8 @@ import { EditPlanPage } from '#pages/plans/EditPlanPage.tsx';
 import { PlansListPage } from '#pages/plans/PlansListPage.tsx';
 import { RegisterPage } from '#pages/RegisterPage.tsx';
 import { SignInPage } from '#pages/SignInPage.tsx';
-import { WorkoutsPage } from '#pages/WorkoutsPage.tsx';
+import { WorkoutProgressPage } from '#pages/workouts/WorkoutProgressPage.tsx';
+import { WorkoutsListPage } from '#pages/workouts/WorkoutsListPage.tsx';
 import type { RouteObject } from 'react-router-dom';
 import { AuthLayout } from '../../layouts/AuthLayout.tsx';
 import { MainLayout } from '../../layouts/MainLayout.tsx';
@@ -45,7 +46,11 @@ export const routes: RouteObject[] = [
       },
       {
         path: 'workouts',
-        element: <WorkoutsPage />
+        element: <WorkoutsListPage />
+      },
+      {
+        path: 'workout/progress/:id',
+        element: <WorkoutProgressPage />
       }
     ]
   },

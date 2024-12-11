@@ -15,7 +15,7 @@ export const FormActions = ({ showLoader, renderMessage }: Props) => (
       loading={showLoader}
       style={{ marginBottom: '1em' }}
     >
-      {showLoader ? 'Await...' : 'Submit'}
+      {showLoader ? 'Ожидайте...' : 'Отправить'}
     </Button>
     {renderMessage}
   </Form.Item>

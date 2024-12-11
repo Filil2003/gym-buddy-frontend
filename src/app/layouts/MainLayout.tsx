@@ -1,3 +1,4 @@
+import { Banner } from '#widgets/Banner.tsx';
 import { Footer } from '#widgets/Footer.tsx';
 import { Header } from '#widgets/Header.tsx';
 import { Sidebar } from '#widgets/Sidebar';
@@ -7,6 +8,7 @@ import { AppLoaderProvider } from '../providers/AppLoaderProvider.tsx';
 
 export const MainLayout = () => (
   <AppLoaderProvider>
+    <Banner/>
     <Layout style={{ height: '100%' }}>
       <Sidebar />
       <Layout

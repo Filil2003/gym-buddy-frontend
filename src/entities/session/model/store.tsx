@@ -1,5 +1,5 @@
 import { jwtDecode, type JwtPayload } from 'jwt-decode';
-import { create, type StateCreator } from 'zustand/index';
+import { create, type StateCreator } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import type { TokenPayload } from './types.ts';
 

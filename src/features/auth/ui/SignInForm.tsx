@@ -19,7 +19,7 @@ export function SignInForm() {
   return (
     <Form onFinish={sendSignInRequest} disabled={isDelayedFetching}>
       <Typography.Title style={{ textAlign: 'center' }}>
-        Sign In
+        Вход
       </Typography.Title>
       <EmailField />
       <PasswordField />
@@ -27,7 +27,7 @@ export function SignInForm() {
         showLoader={isDelayedFetching}
         renderMessage={
           <Typography.Text>
-            Don't have an account? <Link to="/auth/register">Register!</Link>
+            У вас нет учетной записи? <Link to="/auth/register">Создать!</Link>
           </Typography.Text>
         }
       />

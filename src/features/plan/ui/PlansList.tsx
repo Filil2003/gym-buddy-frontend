@@ -10,7 +10,7 @@ export function PlansList() {
   return (
     <>
       <Row justify="space-between" align="middle">
-        <Typography.Title level={1}>Plans</Typography.Title>
+        <Typography.Title level={1}>Планы тренировки</Typography.Title>
         <CreateButton />
       </Row>
 
@@ -26,7 +26,7 @@ export function PlansList() {
           >
             <List.Item.Meta
               title={plan.name}
-              description={`${plan.exercises.length} exercises`}
+              description={`${plan.exercises.length} упражнения`}
             />
           </List.Item>
         )}

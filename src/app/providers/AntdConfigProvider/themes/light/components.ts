@@ -21,5 +21,8 @@ export const components: Components = {
   Form: {
     labelColor: 'inherit',
     colorText: 'inherit'
-  }
+  },
+  InputNumber: {
+    controlWidth: 30
+  },
 } as const;

@@ -4,12 +4,12 @@ import { comparePasswords } from '../../validators/comparePasswords.ts';
 
 export const ConfirmPasswordField = () => (
   <Form.Item
-    label="Confirm Password"
+    label="Подтвердите пароль"
     name="confirmPassword"
     dependencies={['password']}
     hasFeedback={true}
     rules={[
-      { required: true, message: 'Please confirm your password!' },
+      { required: true, message: 'Пожалуйста, подтвердите свой пароль!' },
       ({ getFieldValue }) => comparePasswords(getFieldValue)
     ]}
   >
@@ -17,7 +17,6 @@ export const ConfirmPasswordField = () => (
       autoComplete="new-password"
       prefix={<LockOutlined />}
       type="password"
-      placeholder="Password"
     />
   </Form.Item>
 );

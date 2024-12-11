@@ -29,19 +29,19 @@ const navigationMenu: MenuItem[] = [
     key: 'exercises',
     style: { display: 'flex' },
     icon: <Icon component={ExerciseIcon} />,
-    label: <Link to={'/exercises'}>Exercises</Link>
+    label: <Link to={'/exercises'}>Упражнения</Link>
   },
   {
     key: 'plans',
     style: { display: 'flex' },
     icon: <Icon component={PlanIcon} />,
-    label: <Link to={'/plans'}>Plans</Link>
+    label: <Link to={'/plans'}>Планы</Link>
   },
   {
     key: 'workouts',
     style: { display: 'flex' },
     icon: <Icon component={WorkoutIcon} />,
-    label: <Link to={'/workouts'}>Workouts</Link>
+    label: <Link to={'/workouts'}>Тренировки</Link>
   }
 ];
 

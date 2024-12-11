@@ -1,5 +1,5 @@
 import { sendApiRequest } from '#shared/lib/api-client';
-import { create, type StateCreator } from 'zustand/index';
+import { create, type StateCreator } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { getAll } from '../api/requests.ts';
 import type { Exercise, QueryParams } from './types.ts';

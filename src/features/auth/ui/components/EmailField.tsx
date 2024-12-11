@@ -3,25 +3,25 @@ import { Form, Input } from 'antd';
 
 export const EmailField = () => (
   <Form.Item
-    label="Email"
+    label="Почта"
     name="email"
     hasFeedback={true}
     validateTrigger={false}
     rules={[
       {
         required: true,
-        message: 'Please input your email!'
+        message: 'Пожалуйста, введите свою почту!'
       },
       {
         type: 'email',
-        message: 'The input is not valid email!'
+        message: 'Это не похоже на почту!'
       }
     ]}
   >
     <Input
       autoComplete="username"
       prefix={<UserOutlined/>}
-      placeholder="email"
+      placeholder="user@gmail.com"
     />
   </Form.Item>
 );

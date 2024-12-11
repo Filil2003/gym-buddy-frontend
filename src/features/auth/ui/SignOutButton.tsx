@@ -13,7 +13,7 @@ export const SignOutButton = () => {
 
   return (
     <Button type="link" onClick={handleLogout}>
-      Sign Out
+      Выход
     </Button>
   );
 };

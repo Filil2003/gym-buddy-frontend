@@ -28,7 +28,7 @@ export function ExerciseItem({ exercise, board, index }: Props) {
     >
       <List.Item.Meta
         avatar={
-          <ExerciseImage src={exercise.imageFileName} alt={exercise.name} />
+          <ExerciseImage fileName={exercise.imageFileName} alt={exercise.name} />
         }
         title={exercise.name}
         description={

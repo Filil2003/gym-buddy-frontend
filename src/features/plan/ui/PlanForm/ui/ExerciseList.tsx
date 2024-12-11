@@ -18,7 +18,7 @@ export function ExerciseList({ board }: Props) {
       vertical={true}
       style={{ flex: '1 1 0' }}
     >
-      <Typography.Title level={3}>{board.title}</Typography.Title>
+      <Typography.Text><strong>{board.title}</strong></Typography.Text>
       <List>
         <DropAria
           onDrop={(): void =>

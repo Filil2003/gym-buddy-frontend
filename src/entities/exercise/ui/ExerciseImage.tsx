@@ -1,11 +1,14 @@
 import { Image } from 'antd';
-import type { ComponentProps } from 'react';
+import type { SyntheticEvent } from 'react';
 
-type Props = ComponentProps<typeof Image>;
+interface Props {
+  fileName?: string;
+  alt: string;
+}
 
-export const ExerciseImage = ({ src, alt, ...props }: Props) => (
+export const ExerciseImage = ({ fileName, alt }: Props) => (
   <Image
-    src={src || '/icons/placeholder.svg'}
+    src={fileName ? `http://dev.localhost:8080/uploads/${fileName}` : '/icons/placeholder.svg'}
     alt={alt}
     width={50}
     height={50}
@@ -14,6 +17,10 @@ export const ExerciseImage = ({ src, alt, ...props }: Props) => (
       objectFit: 'cover',
       borderRadius: '50%'
     }}
-    {...props}
+    onError={(e: SyntheticEvent<HTMLImageElement, Event>) => {
+      const target = e.target as HTMLImageElement;
+      target.onerror = null;
+      target.src = '/icons/placeholder.svg';
+    }}
   />
 );

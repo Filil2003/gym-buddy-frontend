@@ -18,7 +18,7 @@ export function RegisterForm() {
   return (
     <Form onFinish={sendRegisterRequest} disabled={isDelayedFetching}>
       <Typography.Title style={{ textAlign: 'center' }}>
-        Register
+        Регистрация
       </Typography.Title>
       <EmailField />
       <PasswordField />
@@ -27,7 +27,7 @@ export function RegisterForm() {
         showLoader={isDelayedFetching}
         renderMessage={
           <Typography.Text>
-            Already have an account? <Link to="/auth/sign-in">Sign In!</Link>
+            У вас уже есть аккаунт? <Link to="/auth/sign-in">Войти!</Link>
           </Typography.Text>
         }
       />

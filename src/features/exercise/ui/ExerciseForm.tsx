@@ -1,5 +1,6 @@
 import {
   create,
+  type CreateExerciseData,
   type Exercise,
   getOne,
   update,
@@ -30,21 +31,26 @@ export const ExerciseForm = () => {
     }
   }, [id, form, sendRequest]);
 
-  const onFinish = async (values: Exercise) => {
-    const [error] = id
-      ? await sendRequest(update(id, values))
-      : await sendRequest(create(values));
+  const onFinish = async (values: CreateExerciseData) => {
+    const formData = {
+      name: values.name,
+      description: values.description,
+      image: values.image,
+      note: values.note
+    };
+
+    const [error, body] = id
+      ? await sendRequest<Partial<Exercise>>(update(id, formData))
+      : await sendRequest<Exercise>(create(formData));
 
     if (error) {
       if (error.name === 'AbortError') return;
-      message.error('Something went wrong');
+      message.error('Ошибка при сохранении');
       return;
     }
 
-    if (id) {
-      updateExercise(id, values);
-    } else {
-      addExercise(values);
+    if (body) {
+      id ? updateExercise(id, body) : addExercise(body as Exercise);
     }
 
     navigate('/exercises');
@@ -59,43 +65,38 @@ export const ExerciseForm = () => {
     >
       {/* Name Field */}
       <Form.Item
-        label="Name"
+        label="Название"
         name="name"
         rules={[
           {
             required: true,
-            message: 'Please input the name of the exercise!'
+            message: 'Пожалуйста, введите название упражнения!'
           }
         ]}
       >
-        <Input placeholder="Enter exercise name" />
+        <Input placeholder="Введите название упражнения" />
       </Form.Item>
 
       {/* Description Field */}
-      <Form.Item label="Description" name="description">
+      <Form.Item label="Описание" name="description">
         <Input.TextArea
           rows={4}
-          placeholder="Add a brief description of the exercise"
+          placeholder="Добавьте краткое описание упражнения"
         />
       </Form.Item>
 
       {/* Image Upload */}
-      <Form.Item label="Image" name="image">
-        <Upload
-          action="/upload"
-          listType="picture"
-          maxCount={1}
-          beforeUpload={() => false}
-        >
-          <Button icon={<UploadOutlined />}>Upload Image</Button>
+      <Form.Item label="Изображение" name="image">
+        <Upload listType="picture" maxCount={1} beforeUpload={() => false}>
+          <Button icon={<UploadOutlined />}>Загрузить</Button>
         </Upload>
       </Form.Item>
 
       {/* Notes Field */}
-      <Form.Item label="Notes" name="note">
+      <Form.Item label="Заметка" name="note">
         <Input.TextArea
           rows={3}
-          placeholder="Add any additional notes or instructions"
+          placeholder="Добавьте любые дополнительные примечания или инструкции."
         />
       </Form.Item>
 
@@ -103,14 +104,14 @@ export const ExerciseForm = () => {
       <Form.Item>
         <Flex gap={'1em'}>
           <Button type="primary" htmlType="submit" loading={isDelayedFetching}>
-            {id ? 'Update' : 'Create'}
+            {id ? 'Обновить' : 'Создать'}
           </Button>
           <Button type="default" onClick={() => navigate('/exercises')}>
-            Cancel
+            Отменить
           </Button>
           {id && (
             <RemoveButton id={id} style={{ marginLeft: 'auto' }}>
-              Remove
+              Удалить
             </RemoveButton>
           )}
         </Flex>

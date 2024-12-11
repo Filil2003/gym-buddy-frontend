@@ -22,7 +22,7 @@ export function ExercisesList() {
   return (
     <>
       <Row justify="space-between" align="middle">
-        <Typography.Title level={1}>Exercises</Typography.Title>
+        <Typography.Title level={1}>Упражнения</Typography.Title>
         <CreateButton />
       </Row>
 
@@ -41,7 +41,7 @@ export function ExercisesList() {
             <List.Item.Meta
               avatar={
                 <ExerciseImage
-                  src={exercise.imageFileName}
+                  fileName={exercise.imageFileName}
                   alt={exercise.name}
                 />
               }

@@ -31,12 +31,12 @@ export function PlanForm() {
 
   const boards: Board[] = [
     {
-      title: 'Selected Exercises',
+      title: 'Избранные',
       exercises: selected,
       setExercises: setSelected
     },
     {
-      title: 'Available Exercises',
+      title: 'Доступные',
       exercises: available,
       setExercises: setAvailable
     }
@@ -110,7 +110,7 @@ export function PlanForm() {
 
     if (error) {
       if (error.name === 'AbortError') return;
-      message.error('Something went wrong');
+      message.error('Что-то пошло не так');
       return;
     }
 
@@ -140,20 +140,20 @@ export function PlanForm() {
       >
         {/* Name Field */}
         <Form.Item
-          label="Name"
+          label="Название"
           name="name"
           rules={[
             {
               required: true,
-              message: 'Please input the name of the plan!'
+              message: 'Пожалуйста, введите название плана!'
             }
           ]}
         >
-          <Input placeholder="Enter exercise name" />
+          <Input placeholder="Введите название упражнения" />
         </Form.Item>
 
         {/* Exercises Field */}
-        <Form.Item label="Exercises">
+        <Form.Item label="Упражнения">
           <Flex gap={24}>
             {boards.map((board: Board) => (
               <ExerciseList key={board.title} board={board} />
@@ -169,9 +169,9 @@ export function PlanForm() {
               htmlType="submit"
               loading={isDelayedFetching}
             >
-              {id ? 'Update' : 'Create'}
+              {id ? 'Изменить' : 'Создать'}
             </Button>
-            <RedirectButton to={'/plans'}>Cancel</RedirectButton>
+            <RedirectButton to={'/plans'}>Отменить</RedirectButton>
           </Flex>
         </Form.Item>
       </Form>

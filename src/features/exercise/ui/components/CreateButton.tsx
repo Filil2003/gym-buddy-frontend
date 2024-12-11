@@ -5,7 +5,7 @@ export function CreateButton() {
   return (
     <Link to={'/exercises/create'}>
       <Button type="primary">
-        Create
+        Создать
       </Button>
     </Link>
   );
