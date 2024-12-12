@@ -1,3 +1,4 @@
+import { ErrorPage } from '#pages/ErrorPage.tsx';
 import { CreateExercisePage } from '#pages/exercises/CreateExercisePage.tsx';
 import { EditExercisePage } from '#pages/exercises/EditExercisePage.tsx';
 import { ExercisesListPage } from '#pages/exercises/ExercisesListPage.tsx';
@@ -19,6 +20,7 @@ export const routes: RouteObject[] = [
     path: '/',
     element: <MainLayout />,
     loader: redirectUnauthorizedUser,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: 'exercises',
@@ -58,6 +60,7 @@ export const routes: RouteObject[] = [
     path: '/auth',
     element: <AuthLayout />,
     loader: redirectAuthorizedUser,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
