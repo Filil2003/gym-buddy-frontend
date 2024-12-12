@@ -8,7 +8,7 @@ import type {
   ResponseMetadata
 } from '../types/index.ts';
 
-const originUrl = 'http://dev.localhost:8080' as const;
+const originUrl: string = import.meta.env.VITE_API_URL;
 
 export async function sendApiRequest<T>(
   apiRequest: ApiRequest

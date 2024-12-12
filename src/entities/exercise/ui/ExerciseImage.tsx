@@ -6,9 +6,11 @@ interface Props {
   alt: string;
 }
 
+const apiUrl: string = import.meta.env.VITE_API_URL;
+
 export const ExerciseImage = ({ fileName, alt }: Props) => (
   <Image
-    src={fileName ? `http://dev.localhost:8080/uploads/${fileName}` : '/icons/placeholder.svg'}
+    src={fileName ? `${apiUrl}/uploads/${fileName}` : '/icons/placeholder.svg'}
     alt={alt}
     width={50}
     height={50}
