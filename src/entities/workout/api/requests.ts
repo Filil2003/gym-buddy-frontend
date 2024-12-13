@@ -5,7 +5,7 @@ import type { CreateWorkoutData } from '../model/types.ts';
 
 export const getAll = (): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint('/api/workout-sessions')
+    .setEndpoint('/workout-sessions')
     .setMethod(HttpMethod.Get)
     .setAuthHeader(getSessionToken())
     .setAbortController(new AbortController())
@@ -13,7 +13,7 @@ export const getAll = (): ApiRequest =>
 
 export const getOne = (id: string): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint(`/api/workout-sessions/${id}`)
+    .setEndpoint(`/workout-sessions/${id}`)
     .setMethod(HttpMethod.Get)
     .setAuthHeader(getSessionToken())
     .setAbortController(new AbortController())
@@ -21,7 +21,7 @@ export const getOne = (id: string): ApiRequest =>
 
 export const create = (workout: CreateWorkoutData): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint('/api/workout-sessions')
+    .setEndpoint('/workout-sessions')
     .setMethod(HttpMethod.Post)
     .setAuthHeader(getSessionToken())
     .setJsonBody(workout)
@@ -30,7 +30,7 @@ export const create = (workout: CreateWorkoutData): ApiRequest =>
 
 export const remove = (id: string): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint(`/api/workout-sessions/${id}`)
+    .setEndpoint(`/workout-sessions/${id}`)
     .setMethod(HttpMethod.Delete)
     .setAuthHeader(getSessionToken())
     .setAbortController(new AbortController())

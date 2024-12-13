@@ -5,7 +5,7 @@ import type { CreatePlanData, UpdatePlanData } from '../model/types.ts';
 
 export const getAll = (): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint('/api/workout-plans')
+    .setEndpoint('/workout-plans')
     .setMethod(HttpMethod.Get)
     .setAuthHeader(getSessionToken())
     .setAbortController(new AbortController())
@@ -13,7 +13,7 @@ export const getAll = (): ApiRequest =>
 
 export const getOne = (id: string): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint(`/api/workout-plans/${id}`)
+    .setEndpoint(`/workout-plans/${id}`)
     .setMethod(HttpMethod.Get)
     .setAuthHeader(getSessionToken())
     .setAbortController(new AbortController())
@@ -21,7 +21,7 @@ export const getOne = (id: string): ApiRequest =>
 
 export const create = (Plan: CreatePlanData): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint('/api/workout-plans')
+    .setEndpoint('/workout-plans')
     .setMethod(HttpMethod.Post)
     .setAuthHeader(getSessionToken())
     .setJsonBody(Plan)
@@ -30,7 +30,7 @@ export const create = (Plan: CreatePlanData): ApiRequest =>
 
 export const update = (id: string, Plan: UpdatePlanData): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint(`/api/workout-plans/${id}`)
+    .setEndpoint(`/workout-plans/${id}`)
     .setMethod(HttpMethod.Put)
     .setAuthHeader(getSessionToken())
     .setJsonBody(Plan)
@@ -39,7 +39,7 @@ export const update = (id: string, Plan: UpdatePlanData): ApiRequest =>
 
 export const remove = (id: string): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint(`/api/workout-plans/${id}`)
+    .setEndpoint(`/workout-plans/${id}`)
     .setMethod(HttpMethod.Delete)
     .setAuthHeader(getSessionToken())
     .setAbortController(new AbortController())

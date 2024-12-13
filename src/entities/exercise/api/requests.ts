@@ -5,7 +5,7 @@ import type { CreateExerciseData, UpdateExerciseData } from '../model/types.ts';
 
 export const getAll = (): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint('/api/exercises')
+    .setEndpoint('/exercises')
     .setMethod(HttpMethod.Get)
     .setAuthHeader(getSessionToken())
     .setAbortController(new AbortController())
@@ -13,7 +13,7 @@ export const getAll = (): ApiRequest =>
 
 export const getOne = (id: string): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint(`/api/exercises/${id}`)
+    .setEndpoint(`/exercises/${id}`)
     .setMethod(HttpMethod.Get)
     .setAuthHeader(getSessionToken())
     .setAbortController(new AbortController())
@@ -21,7 +21,7 @@ export const getOne = (id: string): ApiRequest =>
 
 export const create = (exercise: CreateExerciseData): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint('/api/exercises')
+    .setEndpoint('/exercises')
     .setMethod(HttpMethod.Post)
     .setAuthHeader(getSessionToken())
     .setJsonBody(exercise)
@@ -30,7 +30,7 @@ export const create = (exercise: CreateExerciseData): ApiRequest =>
 
 export const update = (id: string, exercise: UpdateExerciseData): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint(`/api/exercises/${id}`)
+    .setEndpoint(`/exercises/${id}`)
     .setMethod(HttpMethod.Put)
     .setAuthHeader(getSessionToken())
     .setJsonBody(exercise)
@@ -39,7 +39,7 @@ export const update = (id: string, exercise: UpdateExerciseData): ApiRequest =>
 
 export const remove = (id: string): ApiRequest =>
   new ApiRequestBuilder()
-    .setEndpoint(`/api/exercises/${id}`)
+    .setEndpoint(`/exercises/${id}`)
     .setMethod(HttpMethod.Delete)
     .setAuthHeader(getSessionToken())
     .setAbortController(new AbortController())
